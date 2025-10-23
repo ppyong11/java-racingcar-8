@@ -35,25 +35,26 @@
 <br><br>
 - Exception (IllegalArgumentException 발생)
   <br>ErrorMessage: ENUM 구현
-  <br>  - 구분자가 쉼표(,)가 아닐 경우
-  <br>  - 자동차 이름이 5자를 초과할 경우
-  <br>  - 자동차 이름이 중복일 경우
-  <br>  - 빈 문자열이 입력된 경우
-  <br> - 시도 횟수가 0 또는 음수일 경우 (long)
+  <br>  - UNSUPPORTED_DELIMITER: 구분자가 쉼표(,)가 아닐 경우
+  <br>  - INVALID_NAME_LENGTH: 자동차 이름이 5자를 초과할 경우
+  <br>  - DUPLICATED_NAME: 자동차 이름이 중복일 경우
+  <br>  - EMPTY_NAME: 빈 문자열이 입력된 경우
+  <br> - INVALID_COUNT: 시도 횟수가 0 또는 음수일 경우 (long)
 
 ### 테스트 항목
 - RacingcarServiceTest
 - InputValidator (파싱 또는 입력된 값이 도메인 규칙에 맞는지 검증)
   - "pobi", "woni" -> 성공
-  - "Po_bi", "won1" -> 알파벳 외의 문자 포함 에러
+  - "Po_bi", "won1" -> 알파벳 외 문자 포함 에러
+  - "", "woni" -> 공백 문자열 에러
   - "sandra" -> 5자 초과 에러
   - "pobi", "pobi" -> 중복 이름 에러
   - 시도 횟수 0 or 음수-> 에러
 - NameParser
   - "Pobi, Woni" -> ["pobi", "woni"] : 소문자 변환 및 공백 제거 확인
-  - "pobi. woni" -> 에러
+  - "pobi:woni" -> 에러
   - null 값 -> 에러
-  - " ,woni" or "" -> 에러
+  - "" -> 에러
 - RandomNumberGenerator
 - CarTest
   - 랜덤값 ≥ 4 -> 차 위치 + 1
