@@ -16,12 +16,6 @@ public class RacingcarService {
         return new Cars(names); // cars 객체 생성
     }
 
-    public void startRace(List<Car> cars, int count) {
-        for (int i = 0; i < count; i++) {
-            cars.get(i).move(RandomNumberGenerator.randomNumber());
-        }
-    }
-
     private List<String> parseAndValidate(String inputName, int count) {
         List<String> nameList = NameParser.nameParse(inputName);
 
@@ -31,4 +25,13 @@ public class RacingcarService {
         return nameList; // 검증에서 에러 안 터지면 반환
     }
 
+    public void startRace(List<Car> cars) {
+        for (Car car : cars) {
+            car.move(RandomNumberGenerator.randomNumber());
+        }
+    }
+
+    public String getWinner(Cars cars) {
+        return cars.getWinner(cars.getCars());
+    }
 }
