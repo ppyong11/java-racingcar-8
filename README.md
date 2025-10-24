@@ -12,7 +12,7 @@
 ### 기능 구현
 - **Controller**<br>
   RacingcarController: 메인에서 호출됨 
-    <br>- InputView()로 사용자 입력을 받아 Service에 전달
+    <br>- InputView()로 사용자 입력을 받아 Service에 전달 (입력 값 공백 제거 및 소문자 변환)
     <br>- Service에서 처리된 결과를 받아 OutputView()를 사용해 출력
     <br><br>
 - **Domain** <br>
@@ -45,13 +45,13 @@
 - RacingcarServiceTest
 - InputValidator (파싱 또는 입력된 값이 도메인 규칙에 맞는지 검증)
   - "pobi", "woni" -> 성공
-  - "Po_bi", "won1" -> 알파벳 외 문자 포함 에러
+  - "po_bi", "won1" -> 알파벳 외 문자 포함 에러
   - "", "woni" -> 공백 문자열 에러
   - "sandra" -> 5자 초과 에러
   - "pobi", "pobi" -> 중복 이름 에러
   - 시도 횟수 0 or 음수-> 에러
 - NameParser
-  - "Pobi, Woni" -> ["pobi", "woni"] : 소문자 변환 및 공백 제거 확인
+  - "pobi, woni" -> ["pobi", "woni"] : 공백 제거 확인
   - "pobi:woni" -> 에러
   - null 값 -> 에러
   - "" -> 에러
