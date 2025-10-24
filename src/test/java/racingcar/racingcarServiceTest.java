@@ -19,20 +19,18 @@ public class racingcarServiceTest extends NsTest {
     @Test
     void 객체_생성_테스트() {
         String names= "pobi,jun";
-        int count = 1;
 
-        Cars cars = service.makeCars(names, count);
+        Cars cars = service.makeCars(names);
         assertThat(cars.getCars().size()).isEqualTo(2);
     }
 
     @Test
     void 객체_생성_예외_테스트() {
-        String names= "pobi,jun";
-        int count = 0;
+        String names= "pobi,jun:woni";
 
-        assertThatThrownBy(() -> service.makeCars(names, count))
+        assertThatThrownBy(() -> service.makeCars(names))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage(ErrorMessage.INVALID_COUNT.getMessage());
+                .hasMessage(ErrorMessage.INVALID_CHARACTER.getMessage());
     }
 
     @Test
@@ -51,7 +49,8 @@ public class racingcarServiceTest extends NsTest {
 
     @Test
     void 서비스_전체_흐름_테스트() {
-        Cars cars = service.makeCars("pobi, woni, jun", 5);
+        Cars cars = service.makeCars("pobi, woni, jun");
+        int count = service.stringToIntCount("5");
 
         service.startRace(cars.getCars());
 
