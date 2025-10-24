@@ -22,7 +22,7 @@
 <br><br>
 - **Service**<br>
   RacingcarService: 메인 비즈니스 로직으로 흐름만 조율함<br>
-  - **Util**<br>
+  - **Utill**<br>
         - NameParser: 각 자동차 이름 문자열을 구분자로 분리한 후, 공백 제거 및 소문자 변환  <br>
         - RandomNumberGenerator: 0~9 사이 무작위 값 생성<br>
   - **Validator (Service 전용 검증 로직)**<br>
