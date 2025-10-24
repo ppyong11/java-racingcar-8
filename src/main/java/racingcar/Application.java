@@ -18,6 +18,5 @@ public class Application {
         } finally {
             IOView.close();
         }
-
     }
 }

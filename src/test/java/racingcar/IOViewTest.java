@@ -2,7 +2,6 @@ package racingcar;
 
 
 import camp.nextstep.edu.missionutils.test.NsTest;
-import domain.Car;
 import domain.Cars;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +12,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.List;
 
-import static camp.nextstep.edu.missionutils.test.Assertions.assertSimpleTest;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class IOViewTest extends NsTest {
