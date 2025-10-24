@@ -68,12 +68,12 @@ public class InputValidatorTest extends NsTest {
     @Test
     void 정상_시도_횟수_테스트() {
         assertThatNoException()
-                .isThrownBy(() -> InputValidator.countValidator(5));
+                .isThrownBy(() -> InputValidator.countValidator("5"));
     }
 
     @Test
     void 음수_시도_횟수_예외_테스트() {
-        assertThatThrownBy(() -> InputValidator.countValidator(-1))
+        assertThatThrownBy(() -> InputValidator.countValidator("-1"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(ErrorMessage.INVALID_COUNT.getMessage());
     }

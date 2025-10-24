@@ -41,9 +41,22 @@ public class InputValidator {
         }
     }
 
-    public static void countValidator(int count) {
-        if (count <= 0) {
+    public static int countValidator(String count) {
+        if (count == null || count.isBlank()) {
             throw new IllegalArgumentException(ErrorMessage.INVALID_COUNT.getMessage());
         }
+
+        int countInt;
+        try {
+            countInt = Integer.parseInt(count);
+        } catch (Exception e) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_COUNT.getMessage());
+        }
+
+        if (countInt <= 0) {
+            throw new IllegalArgumentException(ErrorMessage.INVALID_COUNT.getMessage());
+        }
+
+        return countInt;
     }
 }

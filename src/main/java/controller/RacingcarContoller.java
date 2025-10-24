@@ -13,13 +13,16 @@ public class RacingcarContoller {
 
     public void run() {
         String inputNames = IOView.inputNames();
-        int inputCount = IOView.inputCount();
+        String inputCount = IOView.inputCount();
 
         // Car 객체 모아둔 Cars 객체 생성
-        Cars cars= racingcarService.makeCars(inputNames, inputCount);
+        Cars cars= racingcarService.makeCars(inputNames.trim());
+
+        int count = racingcarService.stringToIntCount(inputCount.trim());
 
         IOView.outputResultTitle();
-        for (int i = 0; i < inputCount; i++) {
+
+        for (int i = 0; i < count; i++) {
             racingcarService.startRace(cars.getCars());
             IOView.outputCars(cars.getCars());
         }
