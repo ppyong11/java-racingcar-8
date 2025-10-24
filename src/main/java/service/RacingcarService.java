@@ -16,6 +16,12 @@ public class RacingcarService {
         return new Cars(names); // cars 객체 생성
     }
 
+    public void startRace(List<Car> cars, int count) {
+        for (int i = 0; i < count; i++) {
+            cars.get(i).move(RandomNumberGenerator.randomNumber());
+        }
+    }
+
     private List<String> parseAndValidate(String inputName, int count) {
         List<String> nameList = NameParser.nameParse(inputName);
 
