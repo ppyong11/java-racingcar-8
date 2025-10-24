@@ -2,7 +2,6 @@ package view;
 
 import camp.nextstep.edu.missionutils.Console;
 import domain.Car;
-import domain.Cars;
 
 import java.util.List;
 
