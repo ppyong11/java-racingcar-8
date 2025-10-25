@@ -20,7 +20,39 @@ public class CarsTest extends NsTest {
     }
 
     @Test
-    void 우승자_테스트() {
+    void 모든_위치가_0인_경우_테스트() {
+        List<String> list = List.of("pobi", "woni", "jun");
+        Cars cars = new Cars(list);
+
+        List<Car> carList = cars.getCars();
+
+        for (int i = 0; i < 4; i++) {
+            carList.get(0).move(2); // position = 0
+            carList.get(1).move(3); // position = 0
+            carList.get(2).move(2); // position = 0
+        }
+
+        assertThat(cars.getWinner(carList)).isEqualTo("pobi, woni, jun");
+    }
+
+    @Test
+    void 단독_우승_테스트() {
+        List<String> list = List.of("pobi", "woni", "jun");
+        Cars cars = new Cars(list);
+
+        List<Car> carList = cars.getCars();
+
+        for (int i = 0; i < 4; i++) {
+            carList.get(0).move(5); // position = 4
+            carList.get(1).move(3); // position = 0
+            carList.get(2).move(2); // position = 0
+        }
+
+        assertThat(cars.getWinner(carList)).isEqualTo("pobi");
+    }
+
+    @Test
+    void 공동_우승_테스트() {
         List<String> list = List.of("pobi", "woni", "jun");
         Cars cars = new Cars(list);
 

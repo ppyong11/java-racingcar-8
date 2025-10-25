@@ -50,7 +50,6 @@ public class racingcarServiceTest extends NsTest {
     @Test
     void 서비스_전체_흐름_테스트() {
         Cars cars = service.makeCars("pobi, woni, jun");
-        int count = service.stringToIntCount("5");
 
         service.startRace(cars.getCars());
 
