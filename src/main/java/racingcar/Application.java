@@ -13,7 +13,6 @@ public class Application {
         try {
             racingcarContoller.run();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
             throw new IllegalArgumentException(e);
         } finally {
             IOView.close();
