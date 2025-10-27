@@ -16,7 +16,7 @@ public class RacingcarContoller {
         String inputCount = IOView.inputCount();
 
         // Car 객체 모아둔 Cars 객체 생성
-        Cars cars= racingcarService.makeCars(inputNames.trim());
+        Cars cars = racingcarService.makeCars(inputNames.trim());
 
         int count = racingcarService.stringToIntCount(inputCount.trim());
 

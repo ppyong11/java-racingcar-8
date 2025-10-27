@@ -8,8 +8,9 @@ import java.util.Set;
 
 public class InputValidator {
     public static void validateName (List<String> names) {
-        validateDuplicate(names); // 중복 검사
-
+        if (names.size() != new HashSet<>(names).size()) {
+            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NAME.getMessage());
+        }
         for(String name : names) {
             if (name.isBlank()) {
                 throw new IllegalArgumentException(ErrorMessage.EMPTY_NAME.getMessage());
@@ -31,14 +32,6 @@ public class InputValidator {
         }
 
         return true;
-    }
-
-    private static void validateDuplicate(List<String> names) {
-        Set<String> uniqueNames = new HashSet<>(names);
-
-        if (uniqueNames.size() != names.size()) {
-            throw new IllegalArgumentException(ErrorMessage.DUPLICATED_NAME.getMessage());
-        }
     }
 
     public static int countValidator(String count) {
